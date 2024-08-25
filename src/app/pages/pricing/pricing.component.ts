@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-pricing',
@@ -10,4 +10,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './pricing.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PricingComponent { }
+export default class PricingComponent implements OnInit {
+
+  private platform = inject(PLATFORM_ID);
+
+  ngOnInit(): void {
+/*    if(!isPlatformServer(this.platform)){
+    document.title = 'Pricing page';
+   } */
+  }
+
+ }
